@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kaina_tv/views/details_page.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -7,14 +8,143 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      key: _scaffoldKey,
+      drawer: Drawer(
+        backgroundColor: Colors.pinkAccent,
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0, left: 10),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(
+                          'https://avatars.githubusercontent.com/u/65107679?v=4'),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Icon(
+                      Icons.edit,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, top: 10),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Tushar Mahmud',
+                      style: GoogleFonts.montserrat(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Image.asset(
+                          'images/menu.png',
+                          color: Colors.white,
+                          height: 30,
+                          width: 30,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            ListTile(
+              leading: Image.asset(
+                'images/user.png',
+                color: Colors.white,
+                height: 30,
+                width: 30,
+              ),
+              title: Text('Profile',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+            ),
+            ListTile(
+              leading: Image.asset(
+                'images/settings.png',
+                color: Colors.white,
+                height: 30,
+                width: 30,
+              ),
+              title: Text('Settings',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+            ),
+            ListTile(
+              leading: Image.asset(
+                'images/camera.png',
+                color: Colors.white,
+                height: 30,
+                width: 30,
+              ),
+              title: Text('Qui sommes nous ?',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+            ),
+            ListTile(
+              leading: Image.asset(
+                'images/mark.png',
+                color: Colors.white,
+                height: 30,
+                width: 30,
+              ),
+              title: Text('Help',
+                  style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+            ),
+          ],
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
         title: Container(
           height: 50,
           width: 70,
-          color: Colors.green,
+          color: Colors.pinkAccent,
+          child: Center(
+            child: Text(
+              'Logo',
+              style: GoogleFonts.montserrat(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
         centerTitle: true,
         leading: InkWell(
@@ -73,71 +203,77 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Container(
-              height: 350,
-              width: MediaQuery.of(context).size.width / 1.25,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(35),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                    ),
-                  ]),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 20),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Today',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 20,
-                          color: Colors.black54,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => DetailsPage()));
+              },
+              child: Container(
+                height: 350,
+                width: MediaQuery.of(context).size.width / 1.25,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(35),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 20),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Today',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            color: Colors.black54,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 20),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'La Pailade: Un Fablab pour\nles habitants do quarter',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 20,
-                          color: Colors.pink,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 20),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'La Pailade: Un Fablab pour\nles habitants do quarter',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            color: Colors.pink,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 15),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        '1 February 2022 a,11:00 Montpellier',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 13,
-                          color: Colors.black54,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 15),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '1 February 2022 a,11:00 Montpellier',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 13,
+                            color: Colors.black54,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(25),
-                    child: Image.asset(
-                      'images/wom.jpg',
-                      width: 270,
+                    SizedBox(
+                      height: 20,
                     ),
-                  ),
-                ],
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Image.asset(
+                        'images/wom.jpg',
+                        width: 270,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Padding(
