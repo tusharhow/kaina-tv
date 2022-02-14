@@ -1,9 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class DetailsPage extends StatelessWidget {
+class DetailsPage extends StatefulWidget {
   DetailsPage({Key? key}) : super(key: key);
+
+  @override
+  State<DetailsPage> createState() => _DetailsPageState();
+}
+
+String videoID = 'Z_KfwAIVglY';
+YoutubePlayerController _controller = YoutubePlayerController(
+  initialVideoId: videoID,
+  flags: YoutubePlayerFlags(
+    autoPlay: false,
+    mute: false,
+    controlsVisibleAtStart: true,
+  ),
+);
+
+class _DetailsPageState extends State<DetailsPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,96 +179,107 @@ class DetailsPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: Container(
-              height: 580,
-              width: MediaQuery.of(context).size.width / 1.10,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(35),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                    ),
-                  ]),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 20),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'La Pailade: Un Fablab pour\nles habitants do quarter',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 20,
-                          color: Colors.black54,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Container(
+                height: 580,
+                width: MediaQuery.of(context).size.width / 1.10,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(35),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 20),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'La Pailade: Un Fablab pour\nles habitants do quarter',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 20,
+                            color: Colors.black54,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, top: 15),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        '1 February 2022 a,11:00 Montpellier',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 13,
-                          color: Colors.black54,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20, top: 15),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '1 February 2022 a,11:00 Montpellier',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 13,
+                            color: Colors.black54,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(25),
-                    child: Stack(
-                      children: [
-                        Image.asset(
-                          'images/wom.jpg',
-                          width: 300,
-                        ),
-                        Positioned(
-                            left: 120,
-                            top: 70,
-                            child: Icon(
-                              Icons.play_arrow,
-                              color: Colors.pink,
-                              size: 50,
-                            ))
-                      ],
+                    SizedBox(
+                      height: 25,
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, top: 20, right: 20),
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
-                        's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum',
-                        style: GoogleFonts.montserrat(
-                          fontSize: 14,
-                          color: Colors.black54,
-                        ),
-                        textAlign: TextAlign.justify,
+                    // ClipRRect(
+                    //   borderRadius: BorderRadius.circular(25),
+                    //   child: Stack(
+                    //     children: [
+                    //       Image.asset(
+                    //         'images/wom.jpg',
+                    // width: 300,
+                    //       ),
+                    //       Positioned(
+                    //           left: 120,
+                    //           top: 70,
+                    //           child: Icon(
+                    //             Icons.play_arrow,
+                    //             color: Colors.pink,
+                    //             size: 50,
+                    //           ))
+                    //     ],
+                    //   ),
+                    // ),
+                    Container(
+                      width: 300,
+                      height: 200,
+                      child: YoutubePlayer(
+                        controller: _controller,
+                        liveUIColor: Colors.amber,
+                        showVideoProgressIndicator: true,
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 20, top: 20, right: 20),
+                      child: Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry'
+                          's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum',
+                          style: GoogleFonts.montserrat(
+                            fontSize: 14,
+                            color: Colors.black54,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
