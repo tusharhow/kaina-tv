@@ -33,20 +33,17 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       inactiveColorPrimary: CupertinoColors.activeBlue,
     ),
     PersistentBottomNavBarItem(
-      inactiveIcon: ImageIcon(
-        AssetImage(
-          "images/settings.png",
-        ),
-        color: Colors.pink,
-      ),
+      inactiveIcon: Icon(Icons.home, color: Colors.pink),
       icon: Icon(Icons.home, color: Colors.pink),
-      title: ("Settings"),
+      title: ("Home"),
       activeColorPrimary: CupertinoColors.activeBlue,
       inactiveColorPrimary: CupertinoColors.activeBlue,
     ),
     PersistentBottomNavBarItem(
       icon: ImageIcon(
-        AssetImage("images/mark.png",),
+        AssetImage(
+          "images/mark.png",
+        ),
         color: Colors.pink,
       ),
       title: ("About"),
