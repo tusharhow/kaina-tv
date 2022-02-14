@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import 'parametre.dart';
+import 'profile_page.dart';
+
 class DetailsPage extends StatefulWidget {
   DetailsPage({Key? key}) : super(key: key);
 
@@ -40,17 +43,27 @@ class _DetailsPageState extends State<DetailsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage(
-                          'https://avatars.githubusercontent.com/u/65107679?v=4'),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundImage: NetworkImage(
+                            'https://avatars.githubusercontent.com/u/65107679?v=4'),
+                      ),
                     ),
                     SizedBox(
                       width: 15,
                     ),
-                    Icon(
-                      Icons.edit,
-                      color: Colors.white,
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                      ),
                     )
                   ],
                 ),
@@ -92,6 +105,10 @@ class _DetailsPageState extends State<DetailsPage> {
               height: 20,
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
               leading: Image.asset(
                 'images/user.png',
                 color: Colors.white,
@@ -105,6 +122,10 @@ class _DetailsPageState extends State<DetailsPage> {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ParametreScreen()));
+              },
               leading: Image.asset(
                 'images/settings.png',
                 color: Colors.white,
@@ -118,6 +139,9 @@ class _DetailsPageState extends State<DetailsPage> {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pop(context);
+              },
               leading: Image.asset(
                 'images/camera.png',
                 color: Colors.white,

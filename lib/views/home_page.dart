@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kaina_tv/views/details_page.dart';
 
+import 'parametre.dart';
+import 'profile_page.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -75,6 +78,10 @@ class HomePage extends StatelessWidget {
               height: 20,
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
               leading: Image.asset(
                 'images/user.png',
                 color: Colors.white,
@@ -88,6 +95,10 @@ class HomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ParametreScreen()));
+              },
               leading: Image.asset(
                 'images/settings.png',
                 color: Colors.white,
@@ -101,6 +112,9 @@ class HomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pop(context);
+              },
               leading: Image.asset(
                 'images/camera.png',
                 color: Colors.white,
