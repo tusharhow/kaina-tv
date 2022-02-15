@@ -144,20 +144,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Container(
-          height: 50,
-          width: 70,
-          color: Colors.pinkAccent,
-          child: Center(
-            child: Text(
-              'Logo',
-              style: GoogleFonts.montserrat(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ),
+        title: Image.asset('images/logo.png', height: 50),
         centerTitle: true,
         leading: InkWell(
           onTap: () {
@@ -166,7 +153,7 @@ class ProfilePage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Image.asset(
-              'images/menu.png',
+              'images/menu2.png',
               color: Colors.black38,
               height: 50,
               width: 50,

@@ -43,27 +43,17 @@ class _DetailsPageState extends State<DetailsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: CircleAvatar(
-                        radius: 40,
-                        backgroundImage: NetworkImage(
-                            'https://avatars.githubusercontent.com/u/65107679?v=4'),
-                      ),
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(
+                          'https://avatars.githubusercontent.com/u/65107679?v=4'),
                     ),
                     SizedBox(
                       width: 15,
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(
-                        Icons.edit,
-                        color: Colors.white,
-                      ),
+                    Icon(
+                      Icons.edit,
+                      color: Colors.white,
                     )
                   ],
                 ),
@@ -173,20 +163,7 @@ class _DetailsPageState extends State<DetailsPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Container(
-          height: 50,
-          width: 70,
-          color: Colors.pinkAccent,
-          child: Center(
-            child: Text(
-              'Logo',
-              style: GoogleFonts.montserrat(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ),
+        title: Image.asset('images/logo.png', height: 50),
         centerTitle: true,
         leading: InkWell(
           onTap: () {
@@ -195,7 +172,7 @@ class _DetailsPageState extends State<DetailsPage> {
           child: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Image.asset(
-              'images/menu.png',
+              'images/menu2.png',
               color: Colors.black38,
               height: 50,
               width: 50,

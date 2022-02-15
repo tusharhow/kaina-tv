@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'profile_page.dart';
+
 class ParametreScreen extends StatefulWidget {
   ParametreScreen({Key? key}) : super(key: key);
 
@@ -82,6 +84,10 @@ class _ParametreScreenState extends State<ParametreScreen> {
               height: 20,
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
               leading: Image.asset(
                 'images/user.png',
                 color: Colors.white,
@@ -112,6 +118,9 @@ class _ParametreScreenState extends State<ParametreScreen> {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: () {
+                Navigator.pop(context);
+              },
               leading: Image.asset(
                 'images/camera.png',
                 color: Colors.white,
@@ -143,20 +152,7 @@ class _ParametreScreenState extends State<ParametreScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Container(
-          height: 50,
-          width: 70,
-          color: Colors.pinkAccent,
-          child: Center(
-            child: Text(
-              'Logo',
-              style: GoogleFonts.montserrat(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ),
+        title: Image.asset('images/logo.png', height: 50),
         centerTitle: true,
         leading: InkWell(
           onTap: () {
@@ -165,7 +161,7 @@ class _ParametreScreenState extends State<ParametreScreen> {
           child: Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Image.asset(
-              'images/menu.png',
+              'images/menu2.png',
               color: Colors.black38,
               height: 50,
               width: 50,
