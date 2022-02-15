@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:kaina_tv/views/help.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import 'parametre.dart';
@@ -145,13 +146,18 @@ class _DetailsPageState extends State<DetailsPage> {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HelpPage();
+                }));
+              },
               leading: Image.asset(
                 'images/mark.png',
                 color: Colors.white,
                 height: 30,
                 width: 30,
               ),
-              title: Text('Help',
+              title: Text('Buy',
                   style: GoogleFonts.montserrat(
                       fontSize: 20,
                       color: Colors.white,

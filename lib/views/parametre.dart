@@ -140,7 +140,7 @@ class _ParametreScreenState extends State<ParametreScreen> {
                 height: 30,
                 width: 30,
               ),
-              title: Text('Help',
+              title: Text('Buy',
                   style: GoogleFonts.montserrat(
                       fontSize: 20,
                       color: Colors.white,

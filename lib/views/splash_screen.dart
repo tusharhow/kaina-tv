@@ -1,9 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:animation_wrappers/animation_wrappers.dart';
-
-import 'auth/registration.dart';
 import 'onboard_page.dart';
 
 class SplashScreenFirst extends StatefulWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'help.dart';
 import 'parametre.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -126,13 +127,18 @@ class ProfilePage extends StatelessWidget {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HelpPage();
+                }));
+              },
               leading: Image.asset(
                 'images/mark.png',
                 color: Colors.white,
                 height: 30,
                 width: 30,
               ),
-              title: Text('Help',
+              title: Text('Buy',
                   style: GoogleFonts.montserrat(
                       fontSize: 20,
                       color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kaina_tv/views/details_page.dart';
+import 'help.dart';
 import 'parametre.dart';
 import 'profile_page.dart';
 
@@ -127,6 +128,11 @@ class HomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold)),
             ),
             ListTile(
+              onTap: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return HelpPage();
+                }));
+              },
               leading: Image.asset(
                 'images/mark.png',
                 color: Colors.white,
